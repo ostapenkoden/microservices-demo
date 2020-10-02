@@ -20,6 +20,7 @@ func run() error {
 	if err != nil {
 		return fmt.Errorf("init mongo: %v", err)
 	}
+	defer mongoClient.Disconnect(ctx)
 
 	productRepo := mongo.NewProductRepo(mongoClient)
 	productService := grpc.NewProductService(productRepo)
@@ -38,4 +39,3 @@ func main() {
 		os.Exit(1)
 	}
 }
-
