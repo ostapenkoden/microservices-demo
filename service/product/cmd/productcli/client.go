@@ -6,9 +6,10 @@ import (
 	"os"
 
 	"google.golang.org/grpc"
+	"google.golang.org/protobuf/types/known/emptypb"
 
-	pb "github.com/ostapenkoden/microservices-demo/pb/products"
-	"github.com/ostapenkoden/microservices-demo/productsvc/envconf"
+	"github.com/ostapenkoden/microservices-demo/proto/gen/go/demo/product"
+	"github.com/ostapenkoden/microservices-demo/service/product/envconf"
 )
 
 func main() {
@@ -21,9 +22,9 @@ func main() {
 	}
 	defer conn.Close()
 
-	client := pb.NewProductsServiceClient(conn)
+	client := product.NewProductsServiceClient(conn)
 
-	resp, err := client.Find(context.Background(), &pb.Empty{})
+	resp, err := client.Find(context.Background(), &emptypb.Empty{})
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)

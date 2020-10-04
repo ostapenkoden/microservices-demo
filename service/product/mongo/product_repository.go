@@ -6,7 +6,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 
-	"github.com/ostapenkoden/microservices-demo/productsvc/product"
+	"github.com/ostapenkoden/microservices-demo/service/product"
 )
 
 type ProductRepo struct {
@@ -15,7 +15,7 @@ type ProductRepo struct {
 
 func NewProductRepo(client *Client) *ProductRepo {
 	return &ProductRepo{
-		collection: client.Database("productsvc").Collection("products"),
+		collection: client.Database("products").Collection("products"),
 	}
 }
 
@@ -27,5 +27,3 @@ func (r ProductRepo) Products(ctx context.Context) ([]product.Product, error) {
 	}
 	return products, cursor.All(ctx, &products)
 }
-
-

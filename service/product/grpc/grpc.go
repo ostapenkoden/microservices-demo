@@ -5,7 +5,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	pb "github.com/ostapenkoden/microservices-demo/pb/products"
+	"github.com/ostapenkoden/microservices-demo/proto/gen/go/demo/product"
 )
 
 type Server struct {
@@ -14,7 +14,7 @@ type Server struct {
 
 func NewServer(srv *ProductService) *Server {
 	s := grpc.NewServer()
-	pb.RegisterProductsServiceServer(s, srv)
+	product.RegisterProductsServiceServer(s, srv)
 	return &Server{s}
 }
 

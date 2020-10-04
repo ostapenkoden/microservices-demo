@@ -9,7 +9,7 @@ import (
 type Product struct {
 	ID           primitive.ObjectID `bson:"_id"`
 	Name         string             `bson:"name"`
-	Price        float32            `bson:"price"`
+	Price        float64            `bson:"price"`
 	AvailableQty int32              `bson:"available_qty"`
 }
 
