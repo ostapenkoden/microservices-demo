@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package demo.product;
 
-option go_package="github.com/ostapenkoden/microservices-demo/proto/gen/go/demo/product";
+option go_package="github.com/ostapenkoden/microservices-demo/proto/gen/go/demo/inventory";
 
-import "demo/product/product.proto";
+import "demo/inventory/product.proto";
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
 

@@ -5,8 +5,8 @@ import (
 
 	"github.com/golang/protobuf/ptypes/empty"
 
-	productpb "github.com/ostapenkoden/microservices-demo/proto/gen/go/demo/product"
-	"github.com/ostapenkoden/microservices-demo/service/product"
+	"github.com/ostapenkoden/microservices-demo/inventory/product"
+	"github.com/ostapenkoden/microservices-demo/proto/demo/inventory"
 )
 
 type ProductService struct {
@@ -17,16 +17,16 @@ func NewProductService(repo product.Repository) *ProductService {
 	return &ProductService{Repo: repo}
 }
 
-func (s *ProductService) Find(ctx context.Context, _ *empty.Empty) (*productpb.Products, error) {
+func (s *ProductService) Find(ctx context.Context, _ *empty.Empty) (*inventory.Products, error) {
 	products, err := s.Repo.Products(ctx)
 	if err != nil {
 		return nil, err
 	}
 
-	pbProducts := make([]*productpb.Product, len(products))
+	pbProducts := make([]*inventory.Product, len(products))
 
 	for i, p := range products {
-		pbProducts[i] = &productpb.Product{
+		pbProducts[i] = &inventory.Product{
 			ID:           p.ID.String(),
 			Name:         p.Name,
 			Price:        p.Price,
@@ -34,5 +34,5 @@ func (s *ProductService) Find(ctx context.Context, _ *empty.Empty) (*productpb.P
 		}
 	}
 
-	return &productpb.Products{Products: pbProducts}, nil
+	return &inventory.Products{Products: pbProducts}, nil
 }

@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "demo/product/service.proto",
+    "title": "demo/inventory/service.proto",
     "version": "version not set"
   },
   "consumes": [

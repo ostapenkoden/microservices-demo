@@ -8,7 +8,7 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
 
-	"github.com/ostapenkoden/microservices-demo/proto/gen/go/demo/product"
+	"github.com/ostapenkoden/microservices-demo/proto/demo/inventory"
 )
 
 func run() error {
@@ -17,7 +17,7 @@ func run() error {
 
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithInsecure()}
-	if err := product.RegisterProductsServiceHandlerFromEndpoint(ctx, mux, "localhost:3000", opts); err != nil {
+	if err := inventory.RegisterProductsServiceHandlerFromEndpoint(ctx, mux, "localhost:3000", opts); err != nil {
 		return err
 	}
 

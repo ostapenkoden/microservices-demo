@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ostapenkoden/microservices-demo/service/product/envconf"
-	"github.com/ostapenkoden/microservices-demo/service/product/grpc"
-	"github.com/ostapenkoden/microservices-demo/service/product/mongo"
+	"github.com/ostapenkoden/microservices-demo/inventory/envconf"
+	"github.com/ostapenkoden/microservices-demo/inventory/grpc"
+	"github.com/ostapenkoden/microservices-demo/inventory/mongo"
 )
 
 func run() error {

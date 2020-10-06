@@ -6,7 +6,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 
-	"github.com/ostapenkoden/microservices-demo/service/product"
+	"github.com/ostapenkoden/microservices-demo/inventory/product"
 )
 
 type ProductRepo struct {

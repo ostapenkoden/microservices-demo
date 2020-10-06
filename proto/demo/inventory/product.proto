@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package demo.product;
 
-option go_package="github.com/ostapenkoden/microservices-demo/proto/gen/go/demo/product";
+option go_package="github.com/ostapenkoden/microservices-demo/proto/gen/go/demo/inventory";
 
 message Product {
   string ID = 1;
