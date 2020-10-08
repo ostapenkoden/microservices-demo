@@ -15,7 +15,7 @@ type ProductRepo struct {
 
 func NewProductRepo(client *Client) *ProductRepo {
 	return &ProductRepo{
-		collection: client.Database("products").Collection("products"),
+		collection: client.Database("inventory").Collection("products"),
 	}
 }
 

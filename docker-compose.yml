@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+
+  inventory:
+    build:
+      context: .
+      dockerfile: inventory/Dockerfile
+    env_file:
+      - inventory/.env
+    depends_on:
+      - "mongo"
+    networks:
+      - backend
+
+  gateway:
+    build:
+      context: .
+      dockerfile: gateway/Dockerfile
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=inventory
+    volumes:
+      - mongo_data:/data/db
+    expose:
+      - "27017"
+    ports:
+      - "27017-27019:27017-27019"
+
+volumes:
+  mongo_data:
+
+networks:
+  backend:
